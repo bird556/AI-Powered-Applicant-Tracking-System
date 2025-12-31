@@ -19,9 +19,9 @@ export default function Home() {
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
 
-  useEffect(() => {
-    if(!auth.isAuthenticated) navigate('/auth?next=/');
-  }, [auth.isAuthenticated])
+  // useEffect(() => {
+  //   if(!auth.isAuthenticated) navigate('/auth?next=/');
+  // }, [auth.isAuthenticated])
 
   useEffect(() => {
     const loadResumes = async () => {
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
       )}
 
-      {!loadingResumes && resumes?.length === 0 && resumesDemo?.length > 0 &&  (
+      {!loadingResumes && !auth.isAuthenticated && resumesDemo?.length > 0 &&  (
           <div className="resumes-section">
             {resumesDemo.map((resume) => (
                 <ResumeCard key={resume.id} resume={resume} isDemo={true} />
