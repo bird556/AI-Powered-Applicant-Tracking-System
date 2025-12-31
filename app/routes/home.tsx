@@ -74,7 +74,7 @@ export default function Home() {
           </div>
       )}
 
-      {!loadingResumes && resumes?.length === 0 && resumesDemo?.length > 0 && !auth.isAuthenticated &&  (
+      {!loadingResumes && resumes?.length === 0 && resumesDemo?.length > 0 &&  (
           <div className="resumes-section">
             {resumesDemo.map((resume) => (
                 <ResumeCard key={resume.id} resume={resume} isDemo={true} />
